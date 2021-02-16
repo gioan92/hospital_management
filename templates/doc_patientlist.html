@@ -1,0 +1,59 @@
+{% load static %}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Treatment History </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+</head>
+
+<body>
+
+<h4 class="page-title">의사: {{doc_patient.name}}</h4>
+<h4 class="page-title">분과: {{doc_patient.dept}}</h4>
+<h6 class="page-title">연락처: {{doc_patient.phone}}</h6>
+    <div class="row">
+    <div class="col-md-12">
+		<div class="table-responsive">
+			<table class="table table-border table-striped custom-table datatable mb-0">
+				<thead>
+					<tr>
+						<th>ChartID</th>
+						<th>NAME</th>
+						<th>ROOM_NO.</th>
+						<th>ROOM_BED</th>
+						<th>Hospitalization Day</th>
+						<th>PHONE</th>
+						<th>HOME</th>
+					</tr>
+				</thead>
+					<tbody>
+                        {% for u in chartinfo %}
+						    {% for k in cpatient %}
+                                {% if u.did == doc_patient.did %}
+                                    {% if k.pid == u.pid %}
+                                        <tr>
+                                            <td>{{u.cid}}</td>
+                                            <td>{{k.name}}</td>
+                                            <td>{{k.roomNo}}</td>
+                                            <td>{{k.roomBed}}</td>
+                                            <td>{{u.date}}</td>
+                                            <td>{{k.phone}}</td>
+                                            <td>{{k.home}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+					</tbody>
+			</table>
+		</div>
+    </div>
+</div>
+
+</body>
+</html>

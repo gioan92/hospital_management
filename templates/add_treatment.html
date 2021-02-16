@@ -1,0 +1,55 @@
+
+{% load static %}
+
+<style>
+    select{
+        width:200px;
+        height:40px;
+    }
+</style>
+
+<section>
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h4 class="page-title">Add Treatment ({{doc.did}})</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <form action="{% url 'treataddimpl' %}" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Doctor <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" name="doctorid" value="{{doc.did}}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="chart_pat">Patient ID <span class="text-danger">*</span></label><br>
+                                            <select id="chart_pat" name="pid" >
+                                                {% for u in rsusers %}
+                                                    <option value="{{ u.pid }}" >환자ID:{{ u.pid }} /  이름: {{u.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Treatment <span class="text-danger">*</span></label>
+                                        <input class="form-control" name="treatment" style="width:400px;height:100px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-t-20 text-center">
+                                <button class="btn btn-primary submit-btn" type="submit">Submit Treatment</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

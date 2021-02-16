@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+   <script src="https://code.highcharts.com/modules/series-label.js"></script>
+   <script src="https://code.highcharts.com/modules/exporting.js"></script>
+   <script src="https://code.highcharts.com/modules/export-data.js"></script>
+   <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<script>
+    function logout(){
+        location.href="logout";
+        setTimeout(function(){},500);
+        location.href="http://127.0.0.1:8000/";
+    };
+     //window.history.forward();
+     //   function noBack(){
+     //       window.history.forward();
+     //   }
+     //history.go(1);
+</script>
+
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.min.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+   <![endif]-->
+
+</head>
+<style>
+    .loginpart > h3 {
+        float:right;
+    }
+    .logoutpart{
+        position:absolute;
+        clear:left;
+        float:right;
+        right:10px;
+        bottom: 10px;
+    }
+</style>
+<script>
+$(document).ready(function(){
+    if({{menu}} == 1){
+        $('#m1').parent().removeClass('active');
+        $('#m1').addClass('active');
+    }else if({{menu}} == 2){
+        $('#m2').parent().removeClass('active');
+        $('#m2').addClass('active');
+    }else if({{menu}} == 3){
+        $('ul > li').removeClass('active');
+        $('#m3').addClass('active');
+    }else {
+        $('ul > li').removeClass('active');
+        $('#m4').addClass('active');
+    };
+});
+</script>
+
+<!--<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">-->
+<body>
+<div class="header">
+     <div class="header-left">
+        <a href="{% url 'index' %}" class="logo">
+           <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>IoT 3조</span>
+        </a>
+     </div>
+     <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+        <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+
+        <div class="logoutpart">
+            <i id="loginment">{{loginuser.name}}({{loginuser.did}}) 님 환영합니다.</i>
+            <button onclick="logout();">LOGOUT</button>
+        </div>
+    <h4 id="baselogi" hidden>{{loginuser.did}}</h4>
+    </div>
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+        <div id="sidebar-menu" class="sidebar-menu">
+            <ul>
+                <li class="menu-title">Main</li>
+                <li id="m1">
+                    <a href="{% url 'index' %}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                </li>
+                <li id="m2">
+                    <a href="{% url 'hospitalstructure' %}"><i class="fa fa-hospital-o"></i> <span>Rooms</span></a>
+                </li>
+                <li id="m3">
+                    <a href="{% url 'doctors' %}"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
+                </li>
+                <li id="m4">
+                    <a href="{% url 'patients' %}"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+    {% if section != None %}
+        {% include section %}
+    {% else %}
+        {% include 'index.html' %}
+    {% endif %}
+
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="assets/js/Chart.bundle.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+
+</body>
+</html>

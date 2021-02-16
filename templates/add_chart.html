@@ -1,0 +1,83 @@
+
+{% load static %}
+
+<style>
+    select{
+        width:200px;
+        height:40px;
+    }
+</style>
+<section>
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h4 class="page-title">Add Chart ({{doc.did}})</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <form action="{% url 'chartaddimpl' %}" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Doctor <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" name="doctorid" value="{{doc.did}}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="chart_pat">Patient ID <span class="text-danger">*</span></label><br>
+                                            <select id="chart_pat" name="patid" >
+                                                {% for u in rsusers %}
+                                                    <option value="{{ u.pid }}" >환자ID:{{ u.pid }} /  이름: {{u.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="treatid">Treatment ID<span class="text-danger">*</span></label><br>
+                                            <select id="treatid" name="tid">
+                                                {% for t in treat %}
+                                                {% if doc.did == t.did %}
+                                                    <option value="{{ t.tid }}">진료ID:{{ t.tid }} / 환자ID:{{t.pid}}</option>
+                                                {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="dicode">Disease Code<span class="text-danger">*</span></label><br>
+                                            <select id="dicode" name="dicode">
+                                                {% for d in diseasecode %}
+                                                    <option value="{{ d.dcode }}">질병코드:{{ d.dcode }} / 병명: {{d.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="nurlist">Nurse ID <span class="text-danger">*</span></label><br>
+                                            <select id="nurlist" name="nid">
+                                                <option value="nur1">nur1</option>
+                                                <option value="nur2">nur2</option>
+                                                <option value="nur3">nur3</option>
+                                                <option value="nur4">nur4</option>
+                                                <option value="nur5">nur5</option>
+                                                <option value="nur6">nur6</option>
+                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-t-20 text-center">
+                                <button class="btn btn-primary submit-btn" type="submit">Submit Treatment</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

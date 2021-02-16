@@ -1,0 +1,49 @@
+{% load static %}
+<style>
+    .item{
+            font-family: 'Archivo Narrow', sans-serif;
+
+            width:300px;
+            height:120px;
+
+            margin:30px;
+            background:#BFB9B6;
+
+
+            font-size:20px;
+
+            justify-content : center;
+            align-items: center;
+    }
+
+    section{
+        display:flex;
+        justify-content : center;
+        align-items: center;
+    }
+
+
+</style>
+<script>
+        function gotoindex(){
+            location.href="{% url 'index' %}";
+        };
+
+        function logout(){
+            location.href="logout";
+            setTimeout(function(){},500);
+            location.href="http://127.0.0.1:8000/";
+            //history.go(1);
+        };
+        history.pushState(null, null, location.href);
+        window.onpopstate = function(event) {
+            history.go(1);
+        };
+</script>
+<section>
+        <div class="item">
+            <h3>{{loginuser.name}}님 환영합니다.</h3>
+            <button onclick="gotoindex();">이용시작</button>
+            <button onclick="logout();">로그아웃</button>
+        </div>
+</section>

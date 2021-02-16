@@ -1,0 +1,202 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=Noto+Serif+KR:wght@200&display=swap');
+
+        header{
+            width:1200px;
+            height:100px;
+            background : black;
+            color : white;
+            line-height:100px;
+            border : 2px solid black;
+
+            font-size:50px;
+            display:flex;
+            justify-content : center;
+            align-items: center;
+
+        }
+
+        #back{
+            width : 1200px;
+            height : 600px;
+            border : 2px solid black;
+            background-image : url("{% static 'img/ailse.jpg'%}");
+
+            display : flex;
+            flex-direction:column;
+            justify-content : center;
+            align-items: center;
+        }
+
+        .item{
+            font-family: 'Archivo Narrow', sans-serif;
+            background:#BFB9B6;
+            font-size:20px;
+            justify-content : center;
+            align-items: center;
+        }
+
+        #box1{
+            background:pink;
+            width:360px;
+            height:360px;
+        }
+
+        #box2{
+            display:flex;
+            flex-direction:column;
+            width:300px;
+            height:120px;
+        }
+
+    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+    .wrap * {padding: 0;margin: 0;}
+    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+    .info .close:hover {cursor: pointer;}
+    .info .body {position: relative;overflow: hidden;}
+    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .desc .tel {font-size: 11px;color: #888;margin-top: -2px;}
+    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .info .link {color: #5085BB;}
+
+    </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+    history.pushState(null, null, location.href);
+    window.onpopstate = function(event) {
+        history.go(1);
+    };
+    //window.history.forward();
+    //function noBack(){
+    //    window.history.forward();
+    //}
+    //history.go(1);
+</script>
+ <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3f455c94ad83103194d9df89f44467f1"></script>
+
+<!--    <script language="javascript">-->
+<!--        function showPopup() { window.open("popup101.html", "a", "width=400, height=300, left=100, top=50"); }-->
+<!--    </script>-->
+
+</head>
+<!--onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload=""-->
+<body>
+    <header><a href ="http://127.0.0.1:8000/">Medical Clinic</a></header>
+
+    <div id="back">
+        {% if section != None %}
+            {% include section %}
+        {% else %}
+            {% include "login.html" %}
+        {% endif %}
+
+
+
+    <div class="item", id="box1"></div>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3f455c94ad83103194d9df89f44467f1"></script>
+    <script>
+      var container = document.getElementById('box1');
+      var options = {
+         center: new kakao.maps.LatLng(37.53663885419032, 126.88619563041186),
+         level: 3
+      };
+      var map = new kakao.maps.Map(container, options);
+
+        // 마커가 표시될 위치입니다
+        var markerPosition  = new kakao.maps.LatLng(37.53663885419032, 126.88619563041186);
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
+
+
+      var content = '<div class="wrap">' +
+            '    <div class="info">' +
+            '        <div class="title">' +
+            '            Medical Clinic' +
+            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' +
+            '        </div>' +
+            '        <div class="body">' +
+            '            <div class="img">' +
+            '                <img src="assets/img/hospital.jpg" width="73" height="70">' +
+            '           </div>' +
+            '            <div class="desc">' +
+            '                <div class="ellipsis">서울특별시 양천구 목동 911-1</div>' +
+            '                <div class="tel">(Tel) 02-104-8282  </div>' +
+            '            </div>' +
+            '        </div>' +
+            '    </div>' +
+            '</div>';
+
+            // 마커 위에 커스텀오버레이를 표시합니다
+            // 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+            var overlay = new kakao.maps.CustomOverlay({
+                content: content,
+                map: map,
+                position: marker.getPosition()
+            });
+
+            // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+            kakao.maps.event.addListener(marker, 'click', function() {
+                overlay.setMap(map);
+            });
+
+            // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다
+            function closeOverlay() {
+                overlay.setMap(null);
+            }
+
+
+      function zoomIn() {
+            // 현재 지도의 레벨을 얻어옵니다
+            var level = map.getLevel();
+
+            // 지도를 1레벨 내립니다 (지도가 확대됩니다)
+            map.setLevel(level - 1);
+
+            // 지도 레벨을 표시합니다
+            displayLevel();
+        }
+
+        function zoomOut() {
+            // 현재 지도의 레벨을 얻어옵니다
+            var level = map.getLevel();
+
+            // 지도를 1레벨 올립니다 (지도가 축소됩니다)
+            map.setLevel(level + 1);
+
+            // 지도 레벨을 표시합니다
+            displayLevel();
+        }
+
+        function displayLevel(){
+            var levelEl = document.getElementById('maplevel');
+            levelEl.innerHTML = '현재 지도 레벨은 ' + map.getLevel() + ' 레벨 입니다.';
+        }
+    </script>
+
+    </div>
+<footer></footer>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+{% load static %}
+<style>
+        #logo{
+            width:100px;
+            height:125px;
+            background:#white;
+            position:absolute;
+            left: 350px;
+            top:150px;
+            font-size:60px;
+            font-family: 'Noto Sans KR', sans-serif;
+            display : flex;
+            justify-content : center;
+            align-items: center;
+        }
+        #desk{
+            width:100px;
+            height:125px;
+            background:white;
+            border:2px solid black;
+            position:absolute;
+            left: 30px;
+            top:150px;
+            font-size:30px;
+            font-family: 'Noto Sans KR', sans-serif;
+            display : flex;
+            justify-content : center;
+            align-items: center;
+        }
+        #doctor_office{
+            width:200px;
+            height:170px;
+            background:white;
+            border:2px solid black;
+            position:absolute;
+            left:30px;
+            top:310px;
+            font-size:30px;
+            font-family: 'Noto Sans KR', sans-serif;
+            display : flex;
+            justify-content : center;
+            align-items: center;
+        }
+        #cafe{
+            width:150px;
+            height:170px;
+            background:white;
+            border:2px solid black;
+
+            position:absolute;
+            left:240px;
+            top:310px;
+            font-size:30px;
+            font-family: 'Noto Sans KR', sans-serif;
+            display : flex;
+            justify-content : center;
+            align-items: center;
+        }
+       #door{
+            width:250px;
+            height:50px;
+            background:white;
+            border:2px solid black;
+            position:absolute;
+            left:410px;
+            top:450px;
+            font-size:30px;
+            font-family: 'Noto Sans KR', sans-serif;
+            display : flex;
+            justify-content : center;
+            align-items: center;
+       }
+</style>
+<script language="javascript">
+    function showPopup6() { window.open("guest_popup103.html", "a", "width=900, height=500, left=100, top=50"); }
+    function showPopup7() { window.open("guest_popup102.html", "a", "width=900, height=500, left=100, top=50"); }
+    function showPopup8() { window.open("guest_popup101.html", "a", "width=900, height=500, left=100, top=50"); }
+</script>
+
+    <div id="container">
+        <div id="logo">1F</div>
+        <div id="stair"></div>
+        <div id="elebator"></div>
+        <div id="toilet"></div>
+        <div id="desk">접수처</div>
+        <div id="doctor_office">진료실</div>
+        <div id="cafe">카페</div>
+        <div id="roomA" onclick="showPopup8();">101C호</div>
+        <div id="roomB" onclick="showPopup7();">102C호</div>
+        <div id="roomC" onclick="showPopup6();">103C호</div>
+        <div id="door">현관문</div>
+    </div>
+
+<script>
+    sumA=0;
+    sumB=0;
+    sumC=0;
+    {% for p in patient %}
+        selectRoom = "{{p.roomNo}}";
+        selectBed = {{p.roomBed}};
+
+        document.write(sumA);
+
+        if(selectRoom=="101c"){
+            if(selectBed==1){
+               sumA = sumA+1;
+            }
+            if(selectBed==2){
+                sumA = sumA+1;
+            }
+             if(selectBed==3){
+               sumA = sumA+1;
+            }
+            if(selectBed==4){
+               sumA = sumA+1;
+            }
+        }
+
+        if(selectRoom=="102c"){
+            if(selectBed==1){
+                sumB = sumB+1;
+            }
+            if(selectBed==2){
+                sumB = sumB+1;
+            }
+            if(selectBed==3){
+                sumB = sumB+1;
+            }
+            if(selectBed==4){
+                sumB = sumB+1;
+            }
+        }
+
+        if(selectRoom=="103c"){
+            if(selectBed==1){
+                sumC = sumC+1;
+            }
+            if(selectBed==2){
+                sumC = sumC+1;
+            }
+            if(selectBed==3){
+                sumC = sumC+1;
+            }
+            if(selectBed==4){
+                sumC = sumC+1;
+            }
+        }
+    {% endfor %}
+
+    if(sumA==4){
+        document.getElementById('roomA').style.backgroundColor='orange';
+        document.getElementById('roomA').style.color='white';
+    }
+    if(sumB==4){
+        document.getElementById('roomB').style.backgroundColor='orange';
+        document.getElementById('roomB').style.color='white';
+    }
+    if(sumC==4){
+        document.getElementById('roomC').style.backgroundColor='orange';
+        document.getElementById('roomC').style.color='white';
+    }
+</script>

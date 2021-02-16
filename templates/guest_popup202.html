@@ -1,0 +1,169 @@
+{% load static %}
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/ac3907c72d.js" crossorigin="anonymous"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+.container {
+    margin: 0 auto;
+    position: absolute;
+    top: 10px;
+    left: 50px;
+
+    width: 900px;
+    height: 500px;
+    border: 2px solid black;
+    background-color: #fafafa;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+     z-index: -20;
+}
+
+#roomnum{
+    position: absolute;
+    top: 255px;
+    left: 475px;
+    z-index: 8;
+}
+
+.item {
+    width: 250px;
+    height: 100px;
+    border: 2px solid black;
+    background:green;
+    color:white;
+    font-size: 25px;
+    border-radius: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#bed1{
+    float:left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 180px;
+}
+
+#bed2{
+    float:left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:370px;
+    left: 180px;
+}
+
+.desk{
+    width:100px;
+    height:200px;
+    border:2px solid black;
+    border-radius:10px;
+    font-size: 25px;
+    font-family: 'Noto Sans KR', sans-serif;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background:#f5f5dc;
+}
+
+#desk1{
+    position:absolute;
+    left:40px;
+    top:20px;
+}
+
+#desk2{
+    position:absolute;
+    left:40px;
+    top:270px;
+}
+
+#door {
+    width: 40px;
+    height: 150px;
+    border: 2px solid black;
+    font-size: 25px;
+    border-radius: 10px;
+    background:white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top:300px;
+    left: 840px;
+
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#toilet{
+    width:220px;
+    height:230px;
+
+    position:absolute;
+    top:10px;
+    left:660px;
+    background:white;
+    border:2px  solid black;
+    border-radius:10px;
+    font-size: 25px;
+    font-family: 'Noto Sans KR', sans-serif;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+</style>
+</head>
+<body>
+    <h2 id="roomnum">202호</h2>
+    <div class="container">
+        <div class ="item", id="bed1">침대1</div>
+        <div class ="item", id="bed2">침대2</div>
+        <div class ="desk", id="desk1">관물대</div>
+        <div class ="desk", id="desk2">관물대</div>
+        <div id="toilet">화장실</div>
+        <div id="door">출입문</div>
+
+    </div>
+
+
+
+
+     {% for p in patient %}
+         <script>
+            selectRoom = "{{p.roomNo}}";
+            selectBed = {{p.roomBed}};
+
+            if(selectRoom=="202b"){
+                if(selectBed==1){
+                    document.getElementById('bed1').style.backgroundColor='orange';
+                    document.getElementById('bed1').style.color='white';
+                }
+                if(selectBed==2){
+                    document.getElementById('bed2').style.backgroundColor='orange';
+                    document.getElementById('bed2').style.color='white';
+                }
+            }
+        </script>
+    {% endfor %}
+</body>
+</html>

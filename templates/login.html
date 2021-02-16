@@ -1,0 +1,58 @@
+{% load static %}
+<script>
+$(document).ready(function(){
+    $('#login_form > input[type="submit"]').click(function(){
+        $('#login_form').attr({
+            'action': '{% url "loginimpl" %}',
+            'method': 'POST'
+        });
+        $('#login_form').submit();
+    });
+});
+
+function guestuse(){
+    location.href="guest_index";
+};
+</script>
+
+<style>
+    .item{
+            font-family: 'Archivo Narrow', sans-serif;
+            margin:30px;
+            background:#BFB9B6;
+
+            display:flex;
+            flex-direction:column;
+
+            font-size:20px;
+
+            justify-content : center;
+            align-items: center;
+            position:relative
+        }
+    #foot {
+            position:absolute;
+            clear:left;
+            float:right;
+            right:0;
+            bottom:0px;
+    }
+
+
+
+</style>
+
+
+<section>
+        <div class="item", id="box2">
+            <form id = "login_form">
+                {% csrf_token %}
+                ID<input type="text" name="id"><br>
+                PWD<input type="password" name="pwd">
+                <input type="submit" value="LOGIN"><br>
+            </form><br>
+            <div id="foot">
+                <button onclick="guestuse();">Guest</button>
+            </div>
+        </div>
+</section>

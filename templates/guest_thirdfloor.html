@@ -1,0 +1,170 @@
+{% load static %}
+<style>
+    #cancer_center{
+            width:125px;
+            height:100px;
+            background:white;
+            border:2px solid black;
+            position:absolute;
+            left:390px;
+            top:30px;
+            font-size:30px;
+            font-family: 'Noto Sans KR', sans-serif;
+            display : flex;
+            justify-content : center;
+            align-items: center;
+    }
+    #neurology{
+        width:125px;
+        height:100px;
+        background:white;
+        border:2px solid black;
+        position:absolute;
+        left:530px;
+        top:30px;
+        font-size:30px;
+        font-family: 'Noto Sans KR', sans-serif;
+        display : flex;
+        justify-content : center;
+        align-items: center;
+    }
+    #conference{
+        width:100px;
+        height:175px;
+        background:white;
+        border:2px solid black;
+        position:absolute;
+        left:30px;
+        top:150px;
+        font-size:30px;
+        font-family: 'Noto Sans KR', sans-serif;
+        display : flex;
+        justify-content : center;
+        align-items: center;
+    }
+    #president{
+        width:100px;
+        height:135px;
+        background:white;
+        border:2px solid black;
+        position:absolute;
+        left:30px;
+        top:350px;
+        font-size:30px;
+        font-family: 'Noto Sans KR', sans-serif;
+        display : flex;
+        justify-content : center;
+        align-items: center;
+    }
+    #internal{
+        width:170px;;
+        height:135px;
+        background:white;
+        border:2px solid black;
+        position:absolute;
+        left:140px;
+        top:350px;
+        font-size:30px;
+        font-family: 'Noto Sans KR', sans-serif;
+        display : flex;
+        justify-content : center;
+        align-items: center;
+    }
+    #surgery{
+        width:170px;
+        height:135px;
+        background:white;
+        border:2px solid black;
+        position:absolute;
+        left:315px;
+        top:350px;
+        font-size:30px;
+        font-family: 'Noto Sans KR', sans-serif;
+        display : flex;
+        justify-content : center;
+        align-items: center;
+    }
+    #thoracic_surgery{
+        width:170px;
+        height:135px;
+        background:white;
+        border:2px solid black;
+        position:absolute;
+        left:495px;
+        top:350px;
+        font-size:30px;
+        font-family: 'Noto Sans KR', sans-serif;
+        display : flex;
+        justify-content : center;
+        align-items: center;
+    }
+</style>
+<script language="javascript">
+    function showPopup1() { window.open("guest_popup302.html", "a", "width=900, height=500, left=100, top=50"); }
+    function showPopup2() { window.open("guest_popup301.html", "a", "width=900, height=500, left=100, top=50"); }
+</script>
+
+    <div id="container">
+        <div id="logo">3F</div>
+        <div id="stair"></div>
+        <div id="elebator"></div>
+        <div id="toilet"></div>
+        <div id="roomB"  onclick="showPopup2();">301A호</div>
+        <div id="roomC"  onclick="showPopup1();">302A호</div>
+        <div id="cancer_center">암센터</div>
+        <div id="neurology">신경과</div>
+        <div id="internal">내과</div>
+        <div id="surgery">외과</div>
+        <div id="thoracic_surgery">흉부외과</div>
+        <div id="president">원장실</div>
+        <div id="conference">회의실</div>
+    </div>
+
+<script>
+    sumA=0;
+    sumB=0;
+    {% for p in patient %}
+        selectRoom = "{{p.roomNo}}";
+        selectBed = {{p.roomBed}};
+
+        document.write(sumA);
+
+        if(selectRoom=="301a"){
+            if(selectBed==1){
+                sumA = sumA+1;
+            }
+            if(selectBed==2){
+                sumA = sumA+1;
+            }
+            if(selectBed==3){
+                sumA = sumA+1;
+            }
+            if(selectBed==4){
+                sumA = sumA+1;
+            }
+        }
+        if(selectRoom=="302a"){
+            if(selectBed==1){
+                sumB = sumB+1;
+            }
+            if(selectBed==2){
+                sumB = sumB+1;
+            }
+            if(selectBed==3){
+                sumB = sumB+1;
+            }
+            if(selectBed==4){
+                sumB = sumB+1;
+            }
+        }
+    {% endfor %}
+
+    if(sumA==1){
+        document.getElementById('roomB').style.backgroundColor='orange';
+        document.getElementById('roomB').style.color='white';
+    }
+    if(sumB==1){
+        document.getElementById('roomC').style.backgroundColor='orange';
+        document.getElementById('roomC').style.color='white';
+    }
+</script>

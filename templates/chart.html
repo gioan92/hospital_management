@@ -1,0 +1,142 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chart</title>
+
+<!--    <link rel="stylesheet" type="text/css" href="{% static 'css/clock.css' %}">-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script>
+        function gotoback(){
+            location.href="patients";
+        };
+        function chartclose(){
+            this.close();
+            //location.href="patients";
+        };
+    </script>
+
+<!--    <script src="{% static 'js/clock.js' %}"></script>-->
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        h1{
+            text-align:center;
+        }
+        ul{
+            list-style:none;
+        }
+        section{
+            margin:20px;
+            padding:20px;
+        }
+
+        section > h1> div{
+            border:1px solid black;
+            text-align:left;
+        }
+
+        #menu{
+            widht:900px;
+            border-bottom: 1px solid black;
+
+            justify-content: center;
+            align-items: center;
+            border:2px solid black;
+
+        }
+
+        #menu > ul{
+            width:900px;
+            height:75px;
+            margin:20px;
+            margin-left:auto;
+            margin-right:auto;
+
+            display:flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #menu > ul > li{
+            width:150px;
+            height:50px;
+            margin-left:auto;
+            margin-right:auto;
+            display:inline-block;
+            text-align:center;
+            border:2px solid black;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .content_wrap{
+            width:480px;
+            height:460px;
+            margin-left:auto;
+            margin-right:auto;
+            padding-top:10px;
+            padding-left:40px;
+            font-size:24px;
+            background-image:url('assets/img/note.jpg')
+        }
+
+        .content{
+            padding-top:5px;
+            font-size:16px;
+        }
+        .bt_back{
+            width:480px;
+            margin-left:auto;
+            margin-right:auto;
+            text-align:right;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>CHART</h1>
+    <nav id="menu">
+        <ul>
+            <li>환자ID: {{chartpatient.pid}}번</li>
+            <li>병실,좌석: {{chartpatient.roomNo}},{{chartpatient.roomBed}}</li>
+            <li id="datenot">입원날짜: <br>{{chartpatient.date}}</li>
+            <li>전화번호: {{chartpatient.phone}}</li>
+        </ul>
+        <ul>
+            <li>환자이름: {{chartpatient.name}}</li>
+            <li>질병코드: {{chartinfo.dcode}}</li>
+            <li>담당의사: {{chartinfo.did}}</li>
+            <li>담당간호사: {{chartinfo.nid}}</li>
+        </ul>
+    </nav>
+    <section>
+        <div class="content_wrap">진료내용
+            <div class="content">
+                {% for cc in alltreat %}
+                    {% if cc.pid == chartpatient.pid %}
+                        <div>{{cc.desc}}</div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="bt_back">
+            <h4><button onclick="chartclose();">Close</button></h4>
+        </div>
+    </section>
+
+
+</body>
+</html>

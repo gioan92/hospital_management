@@ -1,0 +1,188 @@
+{% load static %}
+
+<script type="text/javascript">
+function populate(doc_dept){
+    var doc_deptSelect = document.getElementById(doc_dept);
+    var doc_deptValue = doc_deptSelect.options[doc_deptSelect.selectedIndex].value;
+
+    if(doc_deptValue =='암센터'){
+        $('.profile-widget').css({
+            'color':'#666',
+            'background-color': '#fff'
+        });
+        $('#ee_암센터' ).css({
+            'color':'orange',
+            'background-color': '#ffd8c4'
+        });
+    }
+    else if(doc_deptValue =='신경과'){
+        $('.profile-widget').css({
+            'color':'#666',
+            'background-color': '#fff'
+        });
+        $('#ee_신경과').css({
+            'color':'orange',
+            'background-color': '#ffd8c4'
+        });
+    }
+    else if(doc_deptValue =='흉부외과'){
+        $('.profile-widget').css({
+            'color':'#666',
+            'background-color': '#fff'
+        });
+        $('#ee_흉부외과').css({
+            'color':'orange',
+            'background-color': '#ffd8c4'
+        });
+    }
+    else if(doc_deptValue =='감염내과'){
+        $('.profile-widget').css({
+            'color':'#666',
+            'background-color': '#fff'
+        });
+        $('#ee_감염내과').css({
+            'color':'orange',
+            'background-color': '#ffd8c4'
+        });
+    }
+    else if(doc_deptValue =='외과'){
+        $('.profile-widget').css({
+            'color':'#666',
+            'background-color': '#fff'
+        });
+        $('#ee_외과').css({
+            'color':'orange',
+            'background-color': '#ffd8c4'
+        });
+    }
+    else{
+        $('.profile-widget').css({
+            'color':'#666',
+            'background-color': '#fff'
+        });
+    }
+};
+</script>
+
+<style>
+    .dropdown-item{
+        cursor:pointer;
+    }
+
+    select{
+        width:100px;
+        height:30px;
+    }
+    #docP{
+     cursor:pointer;
+    }
+    #doc_img{
+        cursor:Default;
+    }
+</style>
+
+
+<script>
+    $(document).ready(function(){
+        $( '#logi' ).load( 'doctors #baselogi');
+    });
+
+    function treatcheckid(did){
+        var log2 = did
+        if( log2 == $( '#baselogi' ).text()){
+            location.href="{% url 'add_treatment' %}?id="+did;
+        }else {
+            alert("본인 자료만 편집할 수 있습니다!");
+            setTimeout(function(){
+                location.href="http://127.0.0.1:8000/doctors";
+            },0);
+        };
+    };
+
+    function chartcheckid(did){
+        var log2 = did
+        if( log2 == $( '#logi' ).text()){
+            location.href="{% url 'add_chart' %}?id="+did;
+        }else {
+            alert("본인 자료만 편집할 수 있습니다!");
+            setTimeout(function(){
+                location.href="http://127.0.0.1:8000/doctors";
+            },0);
+        };
+    };
+
+    function doc_plist_Popup(did) {
+        window.open("{% url 'doc_patientlist' %}?id="+did, "a", "width=1000, height=600, left=100, top=50");
+    };
+</script>
+
+
+<section>
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-4 col-3">
+                <h4 class="page-title">Doctors</h4>    <h4 id="logi" hidden></h4>
+            <!-- Select box 부분  -->
+                <label for="doc_dept">Choose Department:</label>
+                <select id="doc_dept" onchange="populate(this.id,'doc_grid')">
+                    <option value="all">전체</option>
+                    {% for d in doc_deptlist %}
+                        <option value="{{ d }}">{{ d }}</option>
+                    {% endfor %}
+                 </select>
+            </div>
+            <div class="col-sm-8 col-9 text-right m-b-20">
+                <a href="add-doctor" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Doctor</a>
+            </div>
+        </div>
+
+        <div class="row doctor-grid">
+                {% for d in doctors %}
+                    <div class="col-md-4 col-sm-4  col-lg-3">
+                        <div class="profile-widget" id="ee_{{d.dept}}">
+                            <div class="doctor-img">
+                                <img class="avatar" id="doc_img" src="assets/img/{{d.imgname}}">
+                            </div>
+                            <div class="dropdown profile-action">
+                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" onclick="treatcheckid('{{d.did}}');"><i class="fa fa-pencil m-r-5"></i> Add Treatment </a>
+                                    <a class="dropdown-item" onclick="chartcheckid('{{d.did}}');"><i class="fa fa-pencil m-r-5"></i> Add Chart </a>
+                                    <a class="dropdown-item" onclick="doc_plist_Popup('{{d.did}}');"><i class="fa fa-file m-r-5"></i> Treat History </a>
+                                    <a class="dropdown-item" href="{% url 'docdelete' %}?id={{d.did}}"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                </div>
+                            </div>
+                            <div class="doctor-name text-ellipsis">{{d.name}}({{d.did}})</div>
+                            <div class="doc-prof" id="ee_dept_{{d.dept}}">{{d.dept}}</div>
+                            <div class="user-country">
+                                <i class="fa fa-map-marker"></i> {{d.office}}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="see-all">
+                    <a class="see-all-btn" href="javascript:void(0);">Load More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="delete_doctor" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="assets/img/sent.png" alt="" width="50" height="46">
+                <h3>Are you sure want to delete this Doctor?</h3>
+                <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>

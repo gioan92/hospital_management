@@ -1,0 +1,56 @@
+
+{% load static %}
+<!-- add-doctor24:06-->
+<section>
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h4 class="page-title">Add Patient</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <form action="{% url 'patientaddimpl' %}" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Name <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" name="name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>RoomNo (ex. 101c, 202b..) <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" name="roomno">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>RoomBed<span class="text-danger">*</span></label>
+                                        <input class="form-control" type="number" name="roombed">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Phone<span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" name="phone">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Home<span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" name="home">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-t-20 text-center">
+                                <button class="btn btn-primary submit-btn" type="submit">Submit Patient</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

@@ -1,0 +1,190 @@
+
+{% load static %}
+
+<style>
+    #container{
+        width:100%;
+        height:100%;
+        overflow: hidden
+        position: relative;
+    }
+</style>
+<script>
+function graph(data){
+   graphdata = data.datas;
+
+    Highcharts.chart('container', {
+         chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+         },
+         title: {
+            text: '',//'침대<br>여석 비율',
+            align: 'center',
+            verticalAlign: 'middle',
+            y: 60
+         },
+         tooltip: {
+            pointFormat: '{series.name}: <b>{point.y}</b>'
+            //pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+         },
+         accessibility: {
+            point: {
+               valueSuffix: '%'
+            }
+         },
+         plotOptions: {
+            pie: {
+               dataLabels: {
+                  enabled: true,
+                  distance: -50,
+                  style: {
+                     fontWeight: 'bold',
+                     color: 'white'
+                  }
+               },
+               startAngle: -90,
+               endAngle: 90,
+               center: ['50%', '75%'],
+               size: '100%'
+            }
+         },
+         series: [{
+            type: 'pie',
+            name: '침대 수',
+            innerSize: '50%',
+            data: graphdata,
+         }]
+      });
+
+};
+function getData(){
+   $.ajax({
+      url: '{% url "graph" %}',
+      success:function(data){
+         graph(data);
+      }
+   });
+};
+$(document).ready(function(){
+   getData();
+});
+</script>
+
+<script>
+function graph1(data){
+   console.log(data.datas['label']);
+   console.log(data.datas['yval']);
+    var barChartData = {
+      labels: data.datas['label'],
+      datasets: [{
+         label: '병명',
+         backgroundColor: 'rgba(0, 158, 251, 0.5)',
+         borderColor: 'rgba(0, 158, 251, 1)',
+         borderWidth: 1,
+         data: data.datas['yval'],
+      },
+      ]
+   };
+
+   var ctx = document.getElementById('bargraph').getContext('2d');
+   window.myBar = new Chart(ctx, {
+      type: 'bar',
+      data: barChartData,
+      options: {
+         responsive: true,
+         legend: {
+            display: false,
+         },
+         scales:{
+            yAxes:[{
+               ticks:{
+                  beginAtZero:true,
+                  stepSize:1,
+               }
+            }]
+         },
+      }
+   });
+};
+function getData1(){
+   $.ajax({
+      url: '{% url "graph1" %}',
+      success:function(data){
+         graph1(data);
+      }
+   });
+};
+$(document).ready(function(){
+   getData1();
+});
+
+history.pushState(null, null, location.href);
+window.onpopstate = function(event) {
+    history.go(1);
+};
+</script>
+
+<style>
+   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+   .chart-name{
+      font-size:10px;
+      font-family: 'Noto Sans KR', sans-serif;
+   }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!--  가운데 카드 시트   -->
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                        <div class="dash-widget">
+                     <span class="dash-widget-bg1"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
+                     <div class="dash-widget-info text-right">
+                        <h3>Doctor: {{doctNum}} 명</h3>
+                        <span class="widget-title1">Doctors <i class="fa fa-check" aria-hidden="true"></i></span>
+                     </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                        <div class="dash-widget">
+                            <span class="dash-widget-bg2"><i class="fa fa-user-o"></i></span>
+                            <div class="dash-widget-info text-right">
+                                <h3>Patient: {{patNum}} 명</h3>
+                                <span class="widget-title2">Patients <i class="fa fa-check" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                  <div class="card">
+                     <div class="card-body">
+                        <div class="chart-title">
+                           <h4 class="chart-name">침대 여석 비율</h4>
+                        </div>
+                        <div id="container"></div>
+                     </div>
+                  </div>
+                    </div>
+               <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                  <div class="card">
+                     <div class="card-body">
+                        <div class="chart-title">
+                           <h4 class="chart-name">입원 환자 질병 통계</h4>
+                           <div class="float-right">
+                              <ul class="chat-user-total">
+                                 <li><i class="fa fa-circle current-users" aria-hidden="true"></i>환자수</li>
+<!--                                 <li><i class="fa fa-circle old-users" aria-hidden="true"></i></li>-->
+                              </ul>
+                           </div>
+                        </div>
+                        <canvas id="bargraph"></canvas>
+                     </div>
+                  </div>
+               </div>
+                </div>
+            </div>
+        </div>
