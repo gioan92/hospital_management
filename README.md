@@ -49,8 +49,9 @@
 
 ## DB
 
-![image-20210216215719977](./img/image-20210216215719977.png)
-
+<p align="center">
+  <img src="./img/image-20210216215719977.png">
+</p>
 - 환자가 진료를 보면 진료 레코드가 생성되고 환자의 일일, 시간별 건강 상태를 체크하여 기록하면 차트 레코드가 생성됨
 
 - Table 구성
@@ -66,6 +67,7 @@
 
 - DB생성 파일 링크
   - [hospital_v06.sql](https://github.com/gioan92/hospital_management/blob/master/hospital_v06.sql)
+  
 
 
 
@@ -73,9 +75,6 @@
 
 - base.html에서 기능별로 page를 section에 출력하는 구조
 - 로그인 여부에 따라 출력 정보에 차이가 있음
-
-![image-20210216230533102](./img/image-20210216230533102.png)
-
 <p align="center">
   <img src="./img/image-20210216230533102.png">
 </p>
