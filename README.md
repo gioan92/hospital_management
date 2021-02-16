@@ -47,7 +47,7 @@
 
 ## DB
 
-![image-20210216215719977](C:\Users\gioan\AppData\Roaming\Typora\typora-user-images\image-20210216215719977.png)
+![image-20210216215719977](md-images\image-20210216215719977.png)
 
 - 환자가 진료를 보면 진료 레코드가 생성되고 환자의 일일, 시간별 건강 상태를 체크하여 기록하면 차트 레코드가 생성됨
 
