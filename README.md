@@ -76,7 +76,9 @@
 
 ![image-20210216230533102](./img/image-20210216230533102.png)
 
-
+<p align="center">
+  <img src="./img/image-20210216230533102.png">
+</p>
 
 ## Demonstration
 
