@@ -77,7 +77,7 @@
 - base.html에서 기능별로 page를 section에 출력하는 구조
 - 로그인 여부에 따라 출력 정보에 차이가 있음
 <p align="center">
-  <img src="./img/image-20210216230533102.png">
+  <img src="./img/image-20210216230533102.png" alt="text">
 </p>
 
 ## Demonstration
