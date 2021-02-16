@@ -63,7 +63,7 @@
   - 병실상세(roomdetail)
 
 - DB생성 파일 링크
-  - [hospital_v06](https://github.com/gioan92/hospital_management/blob/master/hospital_v06.sql)
+  - [hospital_v06.sql](https://github.com/gioan92/hospital_management/blob/master/hospital_v06.sql)
 
 
 
