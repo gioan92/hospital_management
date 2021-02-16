@@ -2,11 +2,13 @@
 
 [1. Title](#title)
 
-[2. Usage](#usage)
+[2. Outline](#outline)
 
 [3. Tech Stack](#tech-stack)
 
 [4. DB](#DB)
+
+[5. Web Page Structure](#)
 
 [5. Demonstration](#demonstration)
 
@@ -20,7 +22,7 @@
 
 
 
-## Usage
+## Outline
 
 - 주제 : 실시간 병원 알림 시스템
 - 내용 : 환자, 의사 정보를 관리 및 저장하고 Web page를 통하여 시각적으로 정보 제공
@@ -40,8 +42,8 @@
 - MariaDB (HeidiSQL)
 - HTML5 / CSS / JS
 
-- Bootstrap
-- HighCharts
+- Bootstrap (https://www.templateshub.net/demo/?theme=Preclinic-Hospital-Bootstrap4-Admin)
+- HighCharts (https://www.highcharts.com/demo/pie-semi-circle)
 
 
 
@@ -63,7 +65,7 @@
   - 병실상세(roomdetail)
 
 - DB생성 파일 링크
-  - [hospital_v06.sql](https://github.com/gioan92/hospital_management/blob/master/hospital_v06.sql)
+  - [hospital_v06.sql](https://github.com/gioan92/hospital_management/hospital_v06.sql)
 
 
 
