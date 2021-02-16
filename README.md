@@ -8,9 +8,9 @@
 
 [4. DB](#DB)
 
-[5. Web Page Structure](#)
+[5. Web Page Structure](#web-page-structure)
 
-[5. Demonstration](#demonstration)
+[6. Demonstration](#demonstration)
 
 ---
 
@@ -69,9 +69,12 @@
 
 
 
+## Web Page Structure
 
+- base.html에서 기능별로 page를 section에 출력하는 구조
+- 로그인 여부에 따라 출력 정보에 차이가 있음
 
-
+![image-20210216230533102](./img/image-20210216230533102.png)
 
 
 
