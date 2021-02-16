@@ -4,91 +4,12 @@
 
 [2. Usage](#usage)
 
-[3. API](#api)
 
 ---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Title
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
 
 
+## Usage
 
-
-
-## API
-b
-b
-b
-b
-b
-b
-b
-b
-
-bb
-
-
-b
-bb
-b
-b
-
-b
-
-b
 
