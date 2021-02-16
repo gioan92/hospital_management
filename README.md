@@ -6,7 +6,9 @@
 
 [3. Tech Stack](#tech-stack)
 
-[4. Demonstration](#demonstration)
+[4. DB](#DB)
+
+[5. Demonstration](#demonstration)
 
 ---
 
@@ -40,6 +42,34 @@
 
 - Bootstrap
 - HighCharts
+
+
+
+## DB
+
+![image-20210216215719977](C:\Users\gioan\AppData\Roaming\Typora\typora-user-images\image-20210216215719977.png)
+
+- 환자가 진료를 보면 진료 레코드가 생성되고 환자의 일일, 시간별 건강 상태를 체크하여 기록하면 차트 레코드가 생성됨
+
+- Table 구성
+
+  - 담당의(doctor)
+
+  - 환자(patient)
+  - 진료(treatment)
+  - 차트(chart)
+  - 질병(disease)
+  - 병실(room)
+  - 병실상세(roomdetail)
+
+- DB생성 파일 링크
+  - [hospital_v06](https://github.com/gioan92/hospital_management/hospital_v06.sql)
+
+
+
+
+
+
 
 
 
