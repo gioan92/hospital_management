@@ -98,13 +98,13 @@
   - 초기화면
 
   <p align="center">
-      <img src="./img/image-20210219235519753.png" alt="text" width="80%" height="80%>
+      <img src="./img/image-20210219235519753.png" alt="text" width="80%" height="80%">
   </p>
 
   - 로그인 성공
 
   <p align="center">
-      <img src="./img/image-20210219235557145.png" alt="text" style="zoom:50%;" />
+      <img src="./img/image-20210219235557145.png" alt="text" width="70%" height="70%">
   </p>
 
   - 로그인 실패
