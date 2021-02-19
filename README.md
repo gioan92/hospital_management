@@ -98,7 +98,7 @@
   - 초기화면
 
   <p align="center">
-      <img src="./img/image-20210219235519753.png" alt="text" width="50%" height="50%>
+      <img src="./img/image-20210219235519753.png" alt="text" width="80%" height="80%>
   </p>
 
   - 로그인 성공
