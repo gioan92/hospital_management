@@ -111,7 +111,7 @@
     - 팝업 후 초기화면으로 돌아감
 
   <p align="center">
-      <img src="./img/image-20210220000323484.png" alt="text" width="70%" height="70%">
+      <img src="./img/image-20210220000323484.png" alt="text" width="50%" height="50%">
   </p>
 
   
