@@ -98,20 +98,20 @@
   - 초기화면
 
   <p align="center">
-      <img src="./img/image-20210219235519753.png" alt="image-20210219235519753" style="zoom:67%;">
+      <img src="./img/image-20210219235519753.png" alt="image-20210219235519753" style="zoom:50%;">
   </p>
 
   - 로그인 성공
 
   <p align="center">
-      <img src="./img/image-20210219235557145.png" alt="image-20210219235557145" style="zoom:67%;" />
+      <img src="./img/image-20210219235557145.png" alt="image-20210219235557145" style="zoom:50%;" />
   </p>
 
   - 로그인 실패
     - 팝업 후 초기화면으로 돌아감
 
   <p align="center">
-      <img src="./img/image-20210220000323484.png" alt="image-20210220000323484" style="zoom:67%;" />
+      <img src="./img/image-20210220000323484.png" alt="image-20210220000323484" style="zoom:50%;" />
   </p>
 
   
@@ -125,7 +125,7 @@
   - 의사, 환자 수, 병실 침대 여석 비율, 입원환자 질병 통계 그래프를 시각적으로 제공
 
   <p align="center">
-      <img src="./img/image-20210220000750242.png" alt="image-20210220000750242" style="zoom:67%;" />
+      <img src="./img/image-20210220000750242.png" alt="image-20210220000750242" style="zoom:50%;" />
   </p>
 
   
@@ -140,11 +140,11 @@
   - 병실 상세(팝업)로 환자 정보 확인 가능(tooltip 기능)
 
   <p align="center">
-      <img src="./img/image-20210220001016703.png" alt="image-20210220001016703" style="zoom:67%;" />
+      <img src="./img/image-20210220001016703.png" alt="image-20210220001016703" style="zoom:50%;" />
   </p>
 
   <p align="center">
-      <img src="./img/image-20210220001226196.png" alt="image-20210220001226196" style="zoom:67%;" />
+      <img src="./img/image-20210220001226196.png" alt="image-20210220001226196" style="zoom:50%;" />
   </p>
 
 
@@ -157,16 +157,16 @@
   - 우상단의 로그인 유저 정보와 일치하는 데이터만 편집 가능
   - 진료, 차트 데이터 추가, 진료 히스토리 조회, 의사 정보 삭제 기능
 
-<img src="./img/image-20210220001502285.png" alt="image-20210220001502285" style="zoom:67%;" />
+<img src="./img/image-20210220001502285.png" alt="image-20210220001502285" style="zoom:50%;" />
 
 ---
 
 <p align="center">
-    <img src="./img/image-20210220001623053.png" alt="image-20210220001623053" style="zoom:67%;" />
+    <img src="./img/image-20210220001623053.png" alt="image-20210220001623053" style="zoom:50%;" />
 </p>
 
 <p align="center">
-    <img src="./img/image-20210220001651859.png" alt="image-20210220001651859" style="zoom:67%;" />
+    <img src="./img/image-20210220001651859.png" alt="image-20210220001651859" style="zoom:50%;" />
 </p>
 
 
@@ -176,11 +176,11 @@
   - 차트 조회(팝업), 환자 정보 삭제 기능
 
   <p align="center">
-      <img src="./img/image-20210220002005791.png" alt="image-20210220002005791" style="zoom:67%;" />
+      <img src="./img/image-20210220002005791.png" alt="image-20210220002005791" style="zoom:50%;" />
   </p>
 
   <p align="center">
-      <img src="./img/image-20210220001933158.png" alt="image-20210220001933158" style="zoom:67%;" />
+      <img src="./img/image-20210220001933158.png" alt="image-20210220001933158" style="zoom:50%;" />
   </p>
 
 
@@ -195,18 +195,18 @@
   - 의사 진료, 차트 추가 불가능, 차트 조회만 가능
 
 <p align="center">
-    <img src="./img/image-20210220002328630.png" alt="image-20210220002328630" style="zoom:67%;" />
+    <img src="./img/image-20210220002328630.png" alt="image-20210220002328630" style="zoom:50%;" />
 </p>
 
 
 
 <p align="center">
-    <img src="./img/image-20210220002404519.png" alt="image-20210220002404519" style="zoom:67%;" />
+    <img src="./img/image-20210220002404519.png" alt="image-20210220002404519" style="zoom:50%;" />
 </p>
 
 
 
 <p align="center">
-    <img src="./img/image-20210220002451072.png" alt="image-20210220002451072" style="zoom:67%;" />
+    <img src="./img/image-20210220002451072.png" alt="image-20210220002451072" style="zoom:50%;" />
 </p>
 
