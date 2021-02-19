@@ -1,3 +1,9 @@
+
+
+
+
+
+
 # READ ME
 
 [1. Title](#title)
@@ -49,9 +55,7 @@
 
 ## DB
 
-<p align="center">
-  <img src="./img/image-20210216215719977.png">
-</p>
+![image-20210216215719977](./img/image-20210216215719977.png)
 
 - 환자가 진료를 보면 진료 레코드가 생성되고 환자의 일일, 시간별 건강 상태를 체크하여 기록하면 차트 레코드가 생성됨
 
@@ -64,11 +68,10 @@
   - 차트(chart)
   - 질병(disease)
   - 병실(room)
-  - 병실상세(roomdetail)
+- 병실상세(roomdetail)
 
 - DB생성 파일 링크
   - [hospital_v06.sql](https://github.com/gioan92/hospital_management/blob/master/hospital_v06.sql)
-  
 
 
 
@@ -76,12 +79,134 @@
 
 - base.html에서 기능별로 page를 section에 출력하는 구조
 - 로그인 여부에 따라 출력 정보에 차이가 있음
+
 <p align="center">
-  <img src="./img/image-20210216230533102.png" alt="text">
+    <img src="./img/image-20210216230533102.png" alt="text">
 </p>
+
+
+​    
+
+
+
+
 
 ## Demonstration
 
-- 링크1
-- 링크2
-- 링크3
+- Login
+
+  - 초기화면
+
+  <p align="center">
+      <img src="./img/image-20210219235519753.png" alt="image-20210219235519753" style="zoom:67%;">
+  </p>
+
+  - 로그인 성공
+
+  <p align="center">
+      <img src="./img/image-20210219235557145.png" alt="image-20210219235557145" style="zoom:67%;" />
+  </p>
+
+  - 로그인 실패
+    - 팝업 후 초기화면으로 돌아감
+
+  <p align="center">
+      <img src="./img/image-20210220000323484.png" alt="image-20210220000323484" style="zoom:67%;" />
+  </p>
+
+  
+
+  ---
+
+  
+
+- Dashboard
+
+  - 의사, 환자 수, 병실 침대 여석 비율, 입원환자 질병 통계 그래프를 시각적으로 제공
+
+  <p align="center">
+      <img src="./img/image-20210220000750242.png" alt="image-20210220000750242" style="zoom:67%;" />
+  </p>
+
+  
+
+  ---
+
+  
+
+- Rooms
+
+  - 꽉찬 병실은 주황 표시
+  - 병실 상세(팝업)로 환자 정보 확인 가능(tooltip 기능)
+
+  <p align="center">
+      <img src="./img/image-20210220001016703.png" alt="image-20210220001016703" style="zoom:67%;" />
+  </p>
+
+  <p align="center">
+      <img src="./img/image-20210220001226196.png" alt="image-20210220001226196" style="zoom:67%;" />
+  </p>
+
+
+
+---
+
+
+
+- Doctors
+  - 우상단의 로그인 유저 정보와 일치하는 데이터만 편집 가능
+  - 진료, 차트 데이터 추가, 진료 히스토리 조회, 의사 정보 삭제 기능
+
+<img src="./img/image-20210220001502285.png" alt="image-20210220001502285" style="zoom:67%;" />
+
+---
+
+<p align="center">
+    <img src="./img/image-20210220001623053.png" alt="image-20210220001623053" style="zoom:67%;" />
+</p>
+
+<p align="center">
+    <img src="./img/image-20210220001651859.png" alt="image-20210220001651859" style="zoom:67%;" />
+</p>
+
+
+
+- Patients
+
+  - 차트 조회(팝업), 환자 정보 삭제 기능
+
+  <p align="center">
+      <img src="./img/image-20210220002005791.png" alt="image-20210220002005791" style="zoom:67%;" />
+  </p>
+
+  <p align="center">
+      <img src="./img/image-20210220001933158.png" alt="image-20210220001933158" style="zoom:67%;" />
+  </p>
+
+
+
+---
+
+
+
+- Guest
+  - Dashboard는 로그인 유저 화면과 동일
+  - 병실 상세 환자 정보 조회 불가능
+  - 의사 진료, 차트 추가 불가능, 차트 조회만 가능
+
+<p align="center">
+    <img src="./img/image-20210220002328630.png" alt="image-20210220002328630" style="zoom:67%;" />
+</p>
+
+
+
+<p align="center">
+    <img src="./img/image-20210220002404519.png" alt="image-20210220002404519" style="zoom:67%;" />
+</p>
+
+
+
+<p align="center">
+    <img src="./img/image-20210220002451072.png" alt="image-20210220002451072" style="zoom:67%;" />
+</p>
+
