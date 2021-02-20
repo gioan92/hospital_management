@@ -158,7 +158,7 @@
   - 진료, 차트 데이터 추가, 진료 히스토리 조회, 의사 정보 삭제 기능
 
 
-<p align="center>
+<p align="center">
     <img src="./img/image-20210220211423002.png" alt="text" width="70%" height="70%">
 </p>
 
