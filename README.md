@@ -85,7 +85,7 @@
 </p>
 
 
-​    
+
 
 
 
@@ -156,10 +156,10 @@
 - Doctors
   - 우상단의 로그인 유저 정보와 일치하는 데이터만 편집 가능
   - 진료, 차트 데이터 추가, 진료 히스토리 조회, 의사 정보 삭제 기능
+
 <p align="center">
   <img src="./img/image-20210220001502285.png" alt="text" width="70%" height="70%">
 </p>
----
 
 <p align="center">
     <img src="./img/image-20210220001623053.png" alt="text" width="70%" height="70%">
