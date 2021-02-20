@@ -46,7 +46,7 @@
 - Django Framework
 
 - MariaDB (HeidiSQL)
-- HTML5 / CSS / JS
+- HTML5 / CSS / JS, JQuery, Ajax
 
 - Bootstrap (https://www.templateshub.net/demo/?theme=Preclinic-Hospital-Bootstrap4-Admin)
 - HighCharts (https://www.highcharts.com/demo/pie-semi-circle)
